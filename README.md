@@ -14,5 +14,8 @@ I reference the Modbus Nuget package called [NModbus](https://github.com/NModbus
 # Build and Test
 Compile the solution, Run the test app
 
+# Modbus
+More documentation about Modbus on the Wise 4012E can be found [here](http://support.advantech.com/Support/DownloadSRDetail_New.aspx?SR_ID=1-W5ALRV&Doc_Source=Download). Just download the PDF from primary or secondary site.
+
 # Contribute
 Want to contribute? Throw me a pull request....
