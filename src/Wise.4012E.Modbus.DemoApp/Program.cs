@@ -32,7 +32,7 @@ namespace Wise.E4012.Modbus.DemoApp
 
                     modbusProvider.ReadSensors();
 
-                    Console.WriteLine($"{(modbusProvider.KnobOne + "    ").Substring(0, 4)} | {(modbusProvider.KnopTwo + "    ").Substring(0, 4)} | {(modbusProvider.SwitchOne + "    ").Substring(0, 5)} | {(modbusProvider.SwitchTwo + "    ").Substring(0, 5)}");
+                    Console.WriteLine($"{(modbusProvider.KnobOne + "    ").Substring(0, 4)} | {(modbusProvider.KnobTwo + "    ").Substring(0, 4)} | {(modbusProvider.KnobAvg + "    ").Substring(0, 4)} | {(modbusProvider.SwitchOne + "    ").Substring(0, 5)} | {(modbusProvider.SwitchTwo + "    ").Substring(0, 5)}");
                 }
             }
         }

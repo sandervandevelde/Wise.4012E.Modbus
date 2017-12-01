@@ -14,8 +14,24 @@ namespace Wise.E4012.Modbus
 
         private IModbusMaster _master = null;
 
+        /// <summary>
+        /// 40001
+        /// </summary>
         public ushort KnobOne { get; private set; }
-        public ushort KnopTwo { get; private set; }
+
+        /// <summary>
+        /// 40002
+        /// </summary>
+        public ushort KnobTwo { get; private set; }
+
+        /// <summary>
+        /// 40003
+        /// </summary>
+        /// <remarks>
+        /// If value stays zero, please check settings for activation of channels for average.
+        /// </remarks>
+        public ushort KnobAvg { get; private set; }
+
         public bool SwitchOne { get; private set; }
         public bool SwitchTwo { get; private set; }
 
@@ -48,11 +64,13 @@ namespace Wise.E4012.Modbus
         {
             // Knobs
 
-            var readHoldingRegisters = _master.ReadHoldingRegisters(0, 0, 2);
+            var readHoldingRegisters = _master.ReadHoldingRegisters(0, 0, 3);
 
             KnobOne = readHoldingRegisters[0];
 
-            KnopTwo = readHoldingRegisters[1];
+            KnobTwo = readHoldingRegisters[1];
+
+            KnobAvg = readHoldingRegisters[2];
 
             // Switches
 
