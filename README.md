@@ -3,7 +3,7 @@ This is a C# library for accessing the [Advantech Wise 4012E](http://www.advante
 
 This library gives access to the two Knobs (read), the two Switches (read) and the two Relays (write).
 
-I reference the Modbus Nuget package called (NModbus)[https://github.com/NModbus/NModbus]. 
+I reference the Modbus Nuget package called [NModbus](https://github.com/NModbus/NModbus). 
 
 # Getting Started
 1. Fork or download this project and recompile the solution
