@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Wise.E4012.Modbus;
+using Wise.E4012.Modbus.DemoApp.Properties;
 
 namespace Wise.E4012.Modbus.DemoApp
 {
@@ -18,7 +19,9 @@ namespace Wise.E4012.Modbus.DemoApp
         /// </summary>
         private static void Main(string[] args)
         {
-            using (var modbusProvider = new ModbusProvider("192.168.1.142"))
+            var ipAddress = Settings.Default.IpAddress;
+
+            using (var modbusProvider = new ModbusProvider(ipAddress))
             {
                 bool switched = false;
 
@@ -27,12 +30,19 @@ namespace Wise.E4012.Modbus.DemoApp
                     Thread.Sleep(125);
                     switched = !switched;
 
-                    modbusProvider.RelayOne = switched;
-                    modbusProvider.RelayTwo = switched;
+                    try
+                    {
+                        modbusProvider.RelayOne = switched;
+                        modbusProvider.RelayTwo = switched;
 
-                    modbusProvider.ReadSensors();
+                        modbusProvider.ReadSensors();
 
-                    Console.WriteLine($"{(modbusProvider.KnobOne + "    ").Substring(0, 4)} | {(modbusProvider.KnobTwo + "    ").Substring(0, 4)} | {(modbusProvider.KnobAvg + "    ").Substring(0, 4)} | {(modbusProvider.SwitchOne + "    ").Substring(0, 5)} | {(modbusProvider.SwitchTwo + "    ").Substring(0, 5)}");
+                        Console.WriteLine($"{(modbusProvider.KnobOne + "    ").Substring(0, 4)} | {(modbusProvider.KnobTwo + "    ").Substring(0, 4)} | {(modbusProvider.KnobAvg + "    ").Substring(0, 4)} | {(modbusProvider.SwitchOne + "    ").Substring(0, 5)} | {(modbusProvider.SwitchTwo + "    ").Substring(0, 5)}");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Exception {ex.Message}");
+                    }
                 }
             }
         }
