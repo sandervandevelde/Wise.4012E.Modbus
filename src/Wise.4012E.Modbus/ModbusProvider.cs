@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace Wise.E4012.Modbus
 {
+    /// <summary>
+    /// Wise.4012E.Modbus library
+    /// Copyright 2017 Sander van de Velde (@svelde)
+    /// </summary>
     public class ModbusProvider : IDisposable
     {
         private TcpClient _client = null;

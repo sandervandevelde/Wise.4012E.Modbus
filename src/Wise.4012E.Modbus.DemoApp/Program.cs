@@ -12,6 +12,10 @@ using Wise.E4012.Modbus.DemoApp.Properties;
 
 namespace Wise.E4012.Modbus.DemoApp
 {
+    /// <summary>
+    /// Example program for Wise.4012E.Modbus library
+    /// Copyright 2017 Sander van de Velde (@svelde)
+    /// </summary>
     internal class Program
     {
         /// <summary>
